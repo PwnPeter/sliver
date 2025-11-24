@@ -1,0 +1,33 @@
+{
+  "outlook_transport": {
+    "enabled": true,
+    "c2_email": "c2handler@example.com",
+    "poll_interval": "60s",
+    "folder_type": 16,
+    "encryption_key": "GENERATE_WITH_KEYGEN_TOOL",
+    "delete_after": false,
+    "jitter": 30,
+    "session_id": "UNIQUE_SESSION_ID",
+    "max_retries": 3,
+    "debug": false
+  },
+  "notes": {
+    "folder_types": {
+      "3": "DeletedItems",
+      "4": "Outbox",
+      "5": "SentMail",
+      "6": "Inbox",
+      "9": "Calendar",
+      "10": "Contacts",
+      "11": "Journal",
+      "12": "Notes",
+      "13": "Tasks",
+      "16": "Drafts (RECOMMENDED)",
+      "23": "Junk"
+    },
+    "encryption_key": "Generate a 32-byte AES-256 key using: go run implant/sliver/transports/outlook/keygen.go",
+    "session_id": "Use a unique identifier for each implant session (UUID recommended)",
+    "jitter": "Percentage of jitter to apply to poll interval (0-100)",
+    "delete_after": "WARNING: Set to true to delete emails after processing (stealth vs forensics trade-off)"
+  }
+}
