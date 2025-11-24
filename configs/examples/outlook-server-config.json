@@ -1,0 +1,57 @@
+{
+  "outlook_c2_server": {
+    "smtp": {
+      "host": "smtp.gmail.com",
+      "port": 587,
+      "username": "your-c2-email@gmail.com",
+      "password": "your-app-password-here",
+      "use_tls": true
+    },
+    "imap": {
+      "host": "imap.gmail.com",
+      "port": 993,
+      "username": "your-c2-email@gmail.com",
+      "password": "your-app-password-here",
+      "use_tls": true,
+      "folder": "INBOX"
+    },
+    "c2": {
+      "c2_email": "your-c2-email@gmail.com",
+      "encryption_key": "MUST_MATCH_IMPLANT_KEY",
+      "poll_interval": "30s",
+      "mark_as_read": true,
+      "delete_after": false,
+      "debug": true
+    }
+  },
+  "notes": {
+    "gmail_setup": {
+      "app_password": "Generate at: https://myaccount.google.com/apppasswords",
+      "requirement": "You must enable 2FA on your Google account first",
+      "permissions": "App password must have 'Mail' permission"
+    },
+    "other_providers": {
+      "office365": {
+        "smtp": "smtp.office365.com:587",
+        "imap": "outlook.office365.com:993"
+      },
+      "yahoo": {
+        "smtp": "smtp.mail.yahoo.com:587",
+        "imap": "imap.mail.yahoo.com:993"
+      },
+      "custom": {
+        "note": "Any SMTP/IMAP provider should work"
+      }
+    },
+    "security": {
+      "encryption_key": "Must be the same 32-byte key used by implants",
+      "generate_key": "Use: go run implant/sliver/transports/outlook/cmd/keygen/main.go",
+      "delete_after": "WARNING: Set to true to auto-delete emails (stealth vs forensics)",
+      "mark_as_read": "Recommended to avoid re-processing same emails"
+    },
+    "performance": {
+      "poll_interval": "Lower = faster response, higher = more stealthy",
+      "recommended": "30-60 seconds for balance"
+    }
+  }
+}
