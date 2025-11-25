@@ -19,6 +19,7 @@ package outlook
 */
 
 import (
+	"strings"
 	"testing"
 	"time"
 )
@@ -349,6 +350,6 @@ func TestEncryptDecrypt(t *testing.T) {
 
 // Helper function
 func containsC2Data(body string) bool {
-	return len(body) > 0 &&
-		([]byte(body)[0] != 0) // Simple check that body is not empty
+	return strings.Contains(body, "<!--C2DATA-->") &&
+		strings.Contains(body, "<!--/C2DATA-->")
 }
